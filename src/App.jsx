@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-const API_KEY = "0b65fc4fee464b818ef49397aa84b27b"; // Replace with your NewsAPI key
+
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 const categories = ["India", "Technology", "Sports", "Science", "Health", "Business", "Entertainment"];
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
 
   const fetchNews = async (topic) => {
     setLoading(true);
+    //const res = await fetch(`https://newsapi.org/v2/everything?q=${topic}&apiKey=${API_KEY}`);
     const res = await fetch(`https://newsapi.org/v2/everything?q=${topic}&apiKey=${API_KEY}`);
     const data = await res.json();
     setNews(data.articles || []);
