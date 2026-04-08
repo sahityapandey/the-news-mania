@@ -19,9 +19,11 @@ export default function App() {
     try {
       setLoading(true);
 
-      
+      // ✅ CALL BACKEND API (api/news.js)
       const res = await fetch(`/api/news?q=${query}`);
       const data = await res.json();
+
+      console.log(data); // debug
 
       setNews(data.articles || []);
     } catch (error) {
@@ -34,16 +36,20 @@ export default function App() {
   return (
     <div className="bg-gray-50 dark:bg-gray-800 text-black dark:text-white min-h-screen">
 
+      {/* NAVBAR */}
       <Navbar setQuery={setQuery} />
 
       <Routes>
+
         {/* HOME PAGE */}
         <Route
           path="/"
           element={
             <>
               {loading ? (
-                <p className="text-center mt-10 text-lg">Loading news...</p>
+                <p className="text-center mt-10 text-lg">
+                  Loading news...
+                </p>
               ) : news.length === 0 ? (
                 <p className="text-center mt-10 text-gray-500">
                   No news found 😕
@@ -60,6 +66,7 @@ export default function App() {
 
         {/* DETAILS PAGE */}
         <Route path="/news" element={<NewsDetails />} />
+
       </Routes>
 
     </div>

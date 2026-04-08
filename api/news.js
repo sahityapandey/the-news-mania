@@ -3,14 +3,15 @@ export default async function handler(req, res) {
 
   const API_KEY = "0b65fc4fee464b818ef49397aa84b27b";
 
-  const url = `https://gnews.io/api/v4/search?q=${q}&lang=en&max=10&apikey=${API_KEY}`;
-
   try {
-    const response = await fetch(url);
+    const response = await fetch(
+      `https://newsapi.org/v2/everything?q=${q}&language=en&sortBy=publishedAt&apiKey=${API_KEY}`
+    );
+
     const data = await response.json();
 
-    res.status(200).json(data);
+    return res.status(200).json(data);
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch news" });
+    return res.status(500).json({ error: "Failed to fetch news" });
   }
 }
