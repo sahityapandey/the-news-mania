@@ -19,7 +19,7 @@ export default function App() {
     try {
       setLoading(true);
 
-      // ✅ CALL YOUR BACKEND (NOT DIRECT API)
+      
       const res = await fetch(`/api/news?q=${query}`);
       const data = await res.json();
 
