@@ -5,13 +5,12 @@ import Hero from "./components/Hero";
 import Content from "./components/Content";
 import NewsDetails from "./pages/NewsDetails";
 
-const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
-
 export default function App() {
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState("latest");
   const [loading, setLoading] = useState(false);
 
+  // 🔥 Fetch news whenever query changes
   useEffect(() => {
     fetchNews();
   }, [query]);
@@ -20,13 +19,9 @@ export default function App() {
     try {
       setLoading(true);
 
-      const res = await fetch(
-        `https://gnews.io/api/v4/search?q=${query}&lang=en&max=10&apikey=${API_KEY}`
-      );
-
+      // ✅ CALL YOUR BACKEND (NOT DIRECT API)
+      const res = await fetch(`/api/news?q=${query}`);
       const data = await res.json();
-
-      console.log(data); // debug ke liye
 
       setNews(data.articles || []);
     } catch (error) {
@@ -42,13 +37,17 @@ export default function App() {
       <Navbar setQuery={setQuery} />
 
       <Routes>
-        {/* HOME */}
+        {/* HOME PAGE */}
         <Route
           path="/"
           element={
             <>
               {loading ? (
-                <p className="text-center mt-10">Loading news...</p>
+                <p className="text-center mt-10 text-lg">Loading news...</p>
+              ) : news.length === 0 ? (
+                <p className="text-center mt-10 text-gray-500">
+                  No news found 😕
+                </p>
               ) : (
                 <>
                   <Hero news={news} />
