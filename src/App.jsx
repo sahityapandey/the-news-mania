@@ -10,18 +10,30 @@ const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
 export default function App() {
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState("latest");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchNews();
   }, [query]);
 
   const fetchNews = async () => {
-    const res = await fetch(
-      `https://newsapi.org/v2/everything?q=${query}&language=en&sortBy=publishedAt&apiKey=${API_KEY}`
-    );
+    try {
+      setLoading(true);
 
-    const data = await res.json();
-    setNews(data.articles || []);
+      const res = await fetch(
+        `https://gnews.io/api/v4/search?q=${query}&lang=en&max=10&apikey=${API_KEY}`
+      );
+
+      const data = await res.json();
+
+      console.log(data); // debug ke liye
+
+      setNews(data.articles || []);
+    } catch (error) {
+      console.error("Error fetching news:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -30,16 +42,24 @@ export default function App() {
       <Navbar setQuery={setQuery} />
 
       <Routes>
+        {/* HOME */}
         <Route
           path="/"
           element={
             <>
-              <Hero news={news} />
-              <Content news={news} />
+              {loading ? (
+                <p className="text-center mt-10">Loading news...</p>
+              ) : (
+                <>
+                  <Hero news={news} />
+                  <Content news={news} />
+                </>
+              )}
             </>
           }
         />
 
+        {/* DETAILS PAGE */}
         <Route path="/news" element={<NewsDetails />} />
       </Routes>
 
