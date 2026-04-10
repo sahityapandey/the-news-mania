@@ -1,16 +1,213 @@
-# React + Vite
+# 📰 News Mania
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 A modern **News Aggregation Web Application** built using React.js that fetches real-time news from multiple sources and displays them in a clean, user-friendly interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo
+👉 https://the-news-mania.vercel.app
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 Features
 
-## Expanding the ESLint configuration
+- 🔥 Real-time news fetching using APIs  
+- 🗂️ Category-based filtering (Technology, Sports, Business, etc.)  
+- 🔍 Search functionality  
+- ❤️ Bookmark system (localStorage)  
+- 🌙 Dark Mode support  
+- 📱 Fully responsive UI  
+- 🔗 Read full article (external link)  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- React.js  
+- Tailwind CSS  
+- JavaScript (ES6)
+
+**Backend:**
+- Node.js (API Proxy for CORS handling)
+
+**API:**
+- NewsAPI  
+
+**Deployment:**
+- Vercel  
+
+---
+
+## 🧠 How It Works
+
+1. User enters a search query or selects a category  
+2. React updates the state (`query`)  
+3. API call is triggered  
+4. Backend proxy (`/api/news`) fetches data from NewsAPI  
+5. Data is returned as JSON  
+6. UI updates dynamically  
+
+---
+
+## ⚠️ Challenges Faced
+
+- ❌ CORS issue while fetching API  
+- ❌ API restrictions in production  
+
+### ✅ Solution:
+- Implemented **backend proxy using Vercel serverless functions**
+
+---
+
+## 📁 Folder Structure
+# 📰 News Mania
+
+🚀 A modern **News Aggregation Web Application** built using React.js that fetches real-time news from multiple sources and displays them in a clean, user-friendly interface.
+
+---
+
+## 🔗 Live Demo
+👉 https://the-news-mania.vercel.app
+
+---
+
+## 📌 Features
+
+- 🔥 Real-time news fetching using APIs  
+- 🗂️ Category-based filtering (Technology, Sports, Business, etc.)  
+- 🔍 Search functionality  
+- ❤️ Bookmark system (localStorage)  
+- 🌙 Dark Mode support  
+- 📱 Fully responsive UI  
+- 🔗 Read full article (external link)  
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- React.js  
+- Tailwind CSS  
+- JavaScript (ES6)
+
+**Backend:**
+- Node.js (API Proxy for CORS handling)
+
+**API:**
+- NewsAPI  
+
+**Deployment:**
+- Vercel  
+
+---
+
+## 🧠 How It Works
+
+1. User enters a search query or selects a category  
+2. React updates the state (`query`)  
+3. API call is triggered  
+4. Backend proxy (`/api/news`) fetches data from NewsAPI  
+5. Data is returned as JSON  
+6. UI updates dynamically  
+
+---
+
+## ⚠️ Challenges Faced
+
+- ❌ CORS issue while fetching API  
+- ❌ API restrictions in production  
+
+### ✅ Solution:
+- Implemented **backend proxy using Vercel serverless functions**
+
+---
+
+## 📁 Folder Structure
+# 📰 News Mania
+
+🚀 A modern **News Aggregation Web Application** built using React.js that fetches real-time news from multiple sources and displays them in a clean, user-friendly interface.
+
+---
+
+## 🔗 Live Demo
+👉 https://the-news-mania.vercel.app
+
+---
+
+## 📌 Features
+
+- 🔥 Real-time news fetching using APIs  
+- 🗂️ Category-based filtering (Technology, Sports, Business, etc.)  
+- 🔍 Search functionality  
+- ❤️ Bookmark system (localStorage)  
+- 🌙 Dark Mode support  
+- 📱 Fully responsive UI  
+- 🔗 Read full article (external link)  
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:**
+- React.js  
+- Tailwind CSS  
+- JavaScript (ES6)
+
+**Backend:**
+- Node.js (API Proxy for CORS handling)
+
+**API:**
+- NewsAPI  
+
+**Deployment:**
+- Vercel  
+
+---
+
+## 🧠 How It Works
+
+1. User enters a search query or selects a category  
+2. React updates the state (`query`)  
+3. API call is triggered  
+4. Backend proxy (`/api/news`) fetches data from NewsAPI  
+5. Data is returned as JSON  
+6. UI updates dynamically  
+
+---
+
+## ⚠️ Challenges Faced
+
+- ❌ CORS issue while fetching API  
+- ❌ API restrictions in production  
+
+### ✅ Solution:
+- Implemented **backend proxy using Vercel serverless functions**
+
+---
+
+## 📁 Folder Structure
+news-mania/
+├── src/
+│ ├── components/
+│ ├── pages/
+│ ├── App.jsx
+│
+├── api/
+│ └── news.js
+│
+├── public/
+├── package.json
+
+
+
+---
+
+## 🚀 Installation & Setup
+
+```bash
+git clone https://github.com/sahityapandey/the-news-mania.git
+cd the-news-mania
+npm install
+npm run dev
+
